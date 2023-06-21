@@ -1,0 +1,252 @@
+/* Reset styles for all elements */
+* {
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margin */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+/* CSS code */
+body.dark-mode { 
+    background-color: #fff;
+    color: #000;
+    cursor: pointer;
+  }
+
+/* Styling for the body */
+body {
+  font-family: 'Josefin Sans', sans-serif; /* Set the font family */
+  background-color: hsl(235, 21%, 11%); /* Set the background color */
+  font-size: 18px; /* Set the font size */
+  display: flex; /* Use flexbox for layout */
+  justify-content: center; /* Center align the content horizontally */
+}
+
+/* Styles for the light theme */
+.light-theme {
+  background-image: url('assets/light-background.jpg'); /* Set the background image */
+  color: #000000; /* Set the text color */
+}
+
+/* Styles for the dark theme */
+.dark-theme {
+  background-image: url('assets/dark-background.jpg'); /* Set the background image */
+  color: #ffffff; /* Set the text color */
+}
+
+/* Styling for the background image */
+.background-image {
+  position: absolute; /* Position the element absolutely */
+  top: 0; /* Position it at the top */
+  left: 0; /* Position it at the left */
+  right: 0; /* Position it at the right */
+  max-height: 350px; /* Set the maximum height */
+  z-index: -1; /* Position it behind other elements */
+}
+
+.background-image img {
+  width: 100%; /* Set the width to 100% of the parent element */
+  object-fit: cover; /* Scale the image to cover the entire container */
+  min-height: 350px; /* Set the minimum height */
+  object-position: left; /* Align the image to the left */
+}
+
+/* Styling for the container */
+.container {
+  width: 100%; /* Set the width to 100% of the parent element */
+  max-width: 700px; /* Set the maximum width */
+  margin: 0px 30px; /* Set the margin */
+  margin-top: 100px; /* Set the top margin */
+}
+
+/* Styling for the header */
+.header {
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Create space between the elements */
+  align-items: center; /* Center align the content vertically */
+}
+
+/* Styling for the title */
+.title {
+  color: white; /* Set the text color */
+  letter-spacing: 10px; /* Add letter spacing */
+  font-size: 50px; /* Set the font size */
+  font-weight: bold; /* Set the font weight to bold */
+}
+
+/* Styling for the new todo section */
+.new-todo {
+  width: 100%; /* Set the width to 100% of the parent element */
+  height: 70px; /* Set the height */
+  background-color: hsl(235, 24%, 19%); /* Set the background color */
+  margin-top: 50px; /* Set the top margin */
+  border-radius: 6px; /* Set the border radius */
+  display: flex; /* Use flexbox for layout */
+}
+
+/* Styling for the checkbox section */
+.check {
+  flex-basis: 90px; /* Set the initial size of the element in a flexible container */
+  display: flex; /* Use flexbox for layout */
+  justify-content: center; /* Center align the content horizontally */
+  align-items: center; /* Center align the content vertically */
+}
+
+/* Styling for the checkmark */
+.check-mark {
+  width: 30px; /* Set the width */
+  height: 30px; /* Set the height */
+  border-radius: 50%; /* Set the border radius to make it round */
+  border: 2px solid hsl(237, 14%, 26%); /* Set the border style */
+  transition: all 0.25s; /* Add transition effects */
+  display: flex; /* Use flexbox for layout */
+  justify-content: center; /* Center align the content horizontally */
+  align-items: center; /* Center align the content vertically */
+}
+
+.check-mark img {
+  visibility: hidden; /* Hide the image */
+}
+
+.check-mark.checked img,
+.check-mark:hover img {
+  visibility: visible; /* Show the image when checked or hovered */
+}
+
+.check-mark:hover {
+  border-color: linear-gradient(135deg, #55DDFF 0%, #C058F3 100%); /* Add gradient border color on hover */
+  background: linear-gradient(135deg, #55DDFF 0%, #C058F3 100%); /* Add gradient background color on hover */
+}
+
+.check-mark.checked {
+  background-color: pink; /* Set the background color when checked */
+  background: linear-gradient(135deg, #55DDFF 0%, #C058F3 100%); /* Add gradient background color when checked */
+}
+
+/* Styling for the checked todo text */
+.todo-text.checked {
+  text-decoration: line-through; /* Add a line-through decoration */
+  color: hsl(233, 14%, 35%); /* Set the text color */
+}
+
+/* Styling for the new todo input */
+.new-todo-input {
+  flex-grow: 1; /* Allow the input to grow and fill the available space */
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Center align the content vertically */
+}
+
+.new-todo-input input {
+  width: 100%; /* Set the width to 100% of the parent element */
+  padding: 10px 0px; /* Set the padding */
+  font-size: 18px; /* Set the font size */
+  background-color: transparent; /* Set the background color to transparent */
+  border: none; /* Remove the border */
+  outline: none; /* Remove the outline */
+  color: hsl(234, 39%, 85%); /* Set the text color */
+}
+
+.new-todo-input form {
+  flex-grow: 1; /* Allow the form to grow and fill the available space */
+  display: flex; /* Use flexbox for layout */
+}
+
+.new-todo-input input::placeholder {
+  color: hsl(233, 14%, 35%); /* Set the placeholder text color */
+}
+
+/* Styling for the todo text */
+.todo-text {
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Center align the content vertically */
+  font-size: 18px; /* Set the font size */
+  color: hsl(234, 39%, 85%); /* Set the text color */
+}
+
+/* Styling for each todo item */
+.todo-item {
+  width: 100%; /* Set the width to 100% of the parent element */
+  height: 70px; /* Set the height */
+  background-color: hsl(235, 24%, 19%); /* Set the background color */
+  display: flex; /* Use flexbox for layout */
+  border-bottom: 1px solid hsl(237, 14%, 26%); /* Add a bottom border */
+  cursor: pointer; /* Change the cursor to a pointer */
+  transition: all .25s ease; /* Add transition effects */
+  transition-property: box-shadow, transform, border-color; /* Specify the properties to transition */
+}
+
+/* Styling for the todo items wrapper */
+.todo-items-wrapper {
+  margin-top: 30px; /* Set the top margin */
+  border-radius: 6px; /* Set the border radius */
+  overflow: hidden; /* Hide any overflow */
+  background-color: hsl(235, 24%, 19%); /* Set the background color */
+  box-shadow: 0px 2px 30px 0px rgba(0, 0, 0, 0.4); /* Add a box shadow */
+  margin-bottom: 30px; /* Set the bottom margin */
+}
+
+/* Styling for the todo items info section */
+.todo-items-info {
+  width: 100%; /* Set the width to 100% of the parent element */
+  height: 70px; /* Set the height */
+  background-color: hsl(235, 24%, 19%); /* Set the background color */
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Center align the content vertically */
+  color: hsl(233, 14%, 35%); /* Set the text color */
+  padding-left: 30px; /* Set the left padding */
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Create space between the elements */
+  padding-right: 30px; /* Set the right padding */
+}
+
+/* Styling for the items statuses section */
+.items-statuses {
+  display: flex; /* Use flexbox for layout */
+  justify-content: center; /* Center align the content horizontally */
+}
+
+.items-statuses span {
+  padding: 0 4px; /* Set the padding */
+  cursor: pointer; /* Change the cursor to a pointer */
+}
+
+.items-clear {
+  cursor: pointer; /* Change the cursor to a pointer */
+  text-align: end; /* Align the text to the end */
+}
+
+.items-statuses span:hover,
+.items-clear:hover {
+  color: hsl(220, 98%, 61%); /* Change the text color on hover */
+}
+
+.items-statuses .active {
+  color: hsl(220, 98%, 61%); /* Set the text color for the active state */
+}
+
+/* Styling for the todo item on hover */
+.todo-item:hover {
+  transform: translateY(-2px); /* Move the element up by 2 pixels on hover */
+  box-shadow: 0 0px 7px 0px hsl(235, 21%, 11%); /* Add a box shadow on hover */
+  border-color: hsl(235, 24%, 19%); /* Change the border color on hover */
+}
+
+.add-todo {
+    height: 2.9rem;
+    width: 2.9rem;
+    background-color: inherit;
+    border: none;
+    border-top-right-radius: inherit;
+    border-bottom-right-radius: inherit;
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: var(--plus-color);
+    cursor: pointer;
+    align-self: center;
+}
+
+form {
+    display: flex;
+    color: hsl(0, 0%, 98%);
+    height: 2.9rem;
+    padding: 0.5rem 0rem 0.5rem 1rem;
+    border-radius: 20%;
+}

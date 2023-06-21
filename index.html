@@ -1,93 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <title>To Do List App</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
-    <script src="./firebase.js"></script>
-    <script src="./script.js"></script>
+    <meta charset="UTF-8"> <!-- Set the character encoding of the document to UTF-8 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Set compatibility settings for Internet Explorer -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Set viewport properties for responsive web design -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- Preconnect relationship with Google Fonts API -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- Preconnect relationship with Google Fonts static server -->
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet"> <!-- Load Google Fonts stylesheet -->
+    <title>To Do List App</title> <!-- Set the title of the web page -->
+    <link rel="stylesheet" href="style.css"> <!-- Include external CSS file -->
+    <link rel="stylesheet" href="assets/bg-desktop-dark.jpg" media="(prefers-color-scheme: dark)"> <!-- Include external CSS file for dark mode -->
+    <script src="./script.js"></script> <!-- Include external JavaScript file -->
 </head>
 <body>
     <div class="background-image">
-        <img src="assets/bg-desktop-dark.jpg">
+<img src="assets/bg-desktop-dark.jpg"> <!-- Display background image -->
     </div>
-    <div class="container">
-        <div class="header">
-            <div class="title">
-                TODO
+    <div class="container"> <!-- Container for the entire content -->
+        <div class="header"> <!-- Header section -->
+            <div class="title"> <!-- Container for the title -->
+                TODO <!-- Title text -->
             </div>
-            <div class="theme">
-                <img src="assets/icon-sun.svg">
+            <div class="theme"> <!-- Container for the theme icon -->
+                <img src="assets/icon-sun.svg"> <!-- Display theme icon (sun) -->
             </div>
         </div>
-        <div class="new-todo">
-            <div class="check">
+        <div class="new-todo"> <!-- Section for adding a new todo item -->
+            <div class="check"> <!-- Container for the checkbox -->
                 <div class="check-mark">
-                </div>
+                    <img src="assets/icon-check.svg" alt="">
+                </div> <!-- Check mark icon -->
             </div>
-            <div class="new-todo-input">
-                <form onsubmit="addItem(event)">
-                    <input id="todo-input" type="text" placeholder="Create a new todo..." />
+            <div class="new-todo-input"> <!-- Container for the input field and form -->
+                <form onsubmit="addItem(event)"> <!-- Form for submitting a new todo item -->
+                    <input id="todo-input" type="text" placeholder="Create a new todo..." /> <!-- Text input field -->
+                    <button class="add-todo">+</button>
                 </form>
             </div>
         </div>
-        <div class="todo-items-wrapper">
-            <div class="todo-items">
-                <div class="todo-item">
-                    <div class="check">
-                        <div class="check-mark checked">
-                            <img src="assets/icon-check.svg">
-                        </div>
-                    </div>
-                    <div class="todo-text checked">
-                        Cut the lawn
-                    </div>
-                </div>
-                <div class="todo-item">
-                    <div class="check">
-                        <div class="check-mark">
-                            
-                        </div>
-                    </div>
-                    <div class="todo-text">
-                        Cut the lawn
-                    </div>
-                </div>
-                <div class="todo-item">
-                    <div class="check">
-                        <div class="check-mark">
-                        </div>
-                    </div>
-                    <div class="todo-text">
-                        Cut the lawn
-                    </div>
-                </div>
+        <div class="todo-items-wrapper"> <!-- Wrapper for the todo items section -->
+            <div class="todo-items"> <!-- Container for the individual todo items -->
+                
             </div>
-            <div class="todo-items-info">
-                <div class="items-left">
-                    5 items left
+            <div class="todo-items-info"> <!-- Container for todo items information -->
+                <div class="items-left"> <!-- Container for displaying the number of items left -->
+                    0 items left <!-- Display the number of items left -->
                 </div>
-                <div class="items-statuses">
-                    <span class="active">All</span>
-                    <span>Active</span>
-                    <span>Completed</span>
+                <div class="items-statuses"> <!-- Container for status filters -->
+                    <span class="active">All</span> <!-- Filter option for displaying all todo items -->
+                    <span>Active</span> <!-- Filter option for displaying active todo items -->
+                    <span>Completed</span> <!-- Filter option for displaying completed todo items -->
                 </div>
-                <div class="items-clear">
-                    <span>Clear Completed</span>
+                <div class="items-clear"> <!-- Container for "Clear Completed" action -->
+                    <span>Clear Completed</span> <!-- Text for "Clear Completed" action -->
                 </div>
             </div>
         </div>
     </div>
-    
-
-    
 </body>
 </html>
