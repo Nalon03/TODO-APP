@@ -97,14 +97,6 @@ document.addEventListener('DOMContentLoaded', () => {
     todoItem.draggable = true;
     // Make the todo item draggable
 
-    todoItem.innerHTML = `
-      <div class="check">
-        <div class="check-mark"></div>
-      </div>
-      <div class="todo-text">${text}</div>
-    `;
-    // Set the HTML content of the todo item div, including the checkbox and todo text
-
     return todoItem;
     // Return the created todo item
   }
@@ -143,15 +135,6 @@ document.addEventListener('DOMContentLoaded', () => {
   themeToggle.addEventListener('click', () => {
     body.classList.toggle('dark-mode'); // Toggle the 'dark-mode' class on the body element
   });
-
-  // Function to update the items counter
-  function updateItemsCounter(change) {
-    counter += change;
-    // Update the counter by adding the change value
-
-    itemsLeft.textContent = `${counter} item${counter !== 1 ? 's' : ''} left`;
-    // Update the text content of the items left element to display the current count with proper grammar
-  }
 
   // Function to filter items based on status
   function filterItems(event) {
@@ -196,16 +179,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       item.style.display = checked ? 'flex' : 'none';
       // If the item is checked, set the display style to 'flex' to show it, otherwise, set it to 'none' to hide it
-    });
-  }
-
-  // Function to clear completed items
-  function clearCompletedItems() {
-    Array.from(todoItems.children).forEach(item => {
-      if (item.querySelector('.check-mark').classList.contains('checked')) {
-        item.remove();
-        // If the item has the 'checked' class, remove it from the todo items container
-      }
     });
   }
 
@@ -284,4 +257,71 @@ document.addEventListener('DOMContentLoaded', () => {
     draggingItem = null;
     // Reset the dragging item variable
   }
+
+ 
+    // Get elements
+    var addTodoButton = document.getElementById('add-todo-button');
+    
+    // Add new todo item
+    function addItem(event) {
+        event.preventDefault();
+        var inputValue = todoInput.value;
+        if (inputValue) {
+            var newTodoItem = document.createElement('div');
+            newTodoItem.classList.add('todo-item');
+            newTodoItem.innerHTML = `
+                <div class="check">
+                    <div class="check-mark">
+                        <img src="assets/icon-check.svg" alt="">
+                    </div>
+                </div>
+                <div class="todo-item-text">${inputValue}</div>
+                <button class="delete-todo">Delete</button>
+            `;
+            todoItems.appendChild(newTodoItem);
+            todoInput.value = '';
+            updateItemsLeft();
+        }
+    }
+    
+   // Update number of items left
+function updateItemsLeft() {
+  var totalItems = document.querySelectorAll('.todo-item').length;
+  itemsLeft.textContent = totalItems + (totalItems === 1 ? ' item' : ' items') + ' left';
+}
+
+
+// Function to clear completed items
+function clearCompletedItems() {
+  const completedItems = Array.from(todoItems.children).filter(item => {
+    return item.querySelector('.check-mark').classList.contains('checked');
+  });
+
+  completedItems.forEach(item => {
+    item.remove();
+  });
+
+  const completedCount = completedItems.length;
+  counter -= completedCount;
+  updateItemsLeft();
+
+}
+
+   // Event listener for the delete button
+todoItems.addEventListener('click', function(event) {
+    if (event.target.classList.contains('delete-todo')) {
+        var todoItem = event.target.closest('.todo-item');
+        if (todoItem) {
+            todoItem.remove();
+            updateItemsLeft();
+        }
+    }
 });
+
+
+
+});
+
+
+
+

@@ -6,8 +6,8 @@
 }
 /* CSS code */
 body.dark-mode { 
-    background-color: #fff;
-    color: #000;
+    background-color: #b6b3d4;
+    color: #ffffff;
     cursor: pointer;
   }
 
@@ -23,7 +23,7 @@ body {
 /* Styles for the light theme */
 .light-theme {
   background-image: url('assets/light-background.jpg'); /* Set the background image */
-  color: #000000; /* Set the text color */
+  color: #ffffff; /* Set the text color */
 }
 
 /* Styles for the dark theme */
@@ -52,9 +52,10 @@ body {
 /* Styling for the container */
 .container {
   width: 100%; /* Set the width to 100% of the parent element */
-  max-width: 700px; /* Set the maximum width */
-  margin: 0px 30px; /* Set the margin */
+  max-width: 960px; /* Set the maximum width */
   margin-top: 100px; /* Set the top margin */
+  margin: 0 auto; /* Set the margin */
+  padding: 20px;
 }
 
 /* Styling for the header */
@@ -62,14 +63,18 @@ body {
   display: flex; /* Use flexbox for layout */
   justify-content: space-between; /* Create space between the elements */
   align-items: center; /* Center align the content vertically */
+  margin-bottom: 20px;
+
 }
 
 /* Styling for the title */
 .title {
   color: white; /* Set the text color */
   letter-spacing: 10px; /* Add letter spacing */
-  font-size: 50px; /* Set the font size */
   font-weight: bold; /* Set the font weight to bold */
+  font-size: 24px; /*Set the font size */
+  font-family: 'Josefin Sans', sans-serif;
+
 }
 
 /* Styling for the new todo section */
@@ -80,6 +85,8 @@ body {
   margin-top: 50px; /* Set the top margin */
   border-radius: 6px; /* Set the border radius */
   display: flex; /* Use flexbox for layout */
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 /* Styling for the checkbox section */
@@ -88,6 +95,7 @@ body {
   display: flex; /* Use flexbox for layout */
   justify-content: center; /* Center align the content horizontally */
   align-items: center; /* Center align the content vertically */
+  margin-right: 10px;
 }
 
 /* Styling for the checkmark */
@@ -162,7 +170,7 @@ body {
 }
 
 /* Styling for each todo item */
-.todo-item {
+.todo-item{
   width: 100%; /* Set the width to 100% of the parent element */
   height: 70px; /* Set the height */
   background-color: hsl(235, 24%, 19%); /* Set the background color */
@@ -171,6 +179,11 @@ body {
   cursor: pointer; /* Change the cursor to a pointer */
   transition: all .25s ease; /* Add transition effects */
   transition-property: box-shadow, transform, border-color; /* Specify the properties to transition */
+  margin-bottom: 20px;
+}
+.todo-items {
+  list-style: none;
+  padding-left: 0;
 }
 
 /* Styling for the todo items wrapper */
@@ -196,6 +209,9 @@ body {
   justify-content: space-between; /* Create space between the elements */
   padding-right: 30px; /* Set the right padding */
 }
+.items-left {
+  margin-right: 20px;
+}
 
 /* Styling for the items statuses section */
 .items-statuses {
@@ -206,6 +222,7 @@ body {
 .items-statuses span {
   padding: 0 4px; /* Set the padding */
   cursor: pointer; /* Change the cursor to a pointer */
+  margin-right: 10px;
 }
 
 .items-clear {
@@ -223,7 +240,7 @@ body {
 }
 
 /* Styling for the todo item on hover */
-.todo-item:hover {
+.todo-items:hover {
   transform: translateY(-2px); /* Move the element up by 2 pixels on hover */
   box-shadow: 0 0px 7px 0px hsl(235, 21%, 11%); /* Add a box shadow on hover */
   border-color: hsl(235, 24%, 19%); /* Change the border color on hover */
@@ -250,3 +267,91 @@ form {
     padding: 0.5rem 0rem 0.5rem 1rem;
     border-radius: 20%;
 }
+
+
+/* Media queries for different screen sizes */
+@media screen and (max-width: 600px) {
+  .title {
+      font-size: 20px;
+  }
+
+  .items-left,
+  .items-statuses span,
+  .items-clear span {
+      font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 960px) {
+  .title {
+      font-size: 22px;
+  }
+
+  .items-left,
+  .items-statuses span,
+  .items-clear span {
+      font-size: 16px;
+  }
+}
+
+/* Styles for the delete button */
+.delete-button {
+  background-color: transparent;
+  border: none;
+  color: #f44336;
+  cursor: pointer;
+  font-weight: bold;
+  order: 1; /* Change the order to make the delete button appear in front */
+  margin-left: 80px;
+}
+
+/* Container for the todo item */
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* Styles for the todo text */
+.todo-text {
+  flex-grow: 1;
+  margin-left: 10px;
+}
+
+/* Common styles */
+.check {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.check-mark img {
+  display: block;
+  width: 50%;
+  height: 50%;
+  object-fit: contain;
+}
+
+.delete-todo {
+  flex-shrink: 0;
+  padding: 4px 8px;
+  margin-left: 10px;
+  border: none;
+  background-color: #f44336;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.delete-todo:hover {
+  background-color: #cf5e5c;
+}
+
